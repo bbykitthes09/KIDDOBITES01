@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Nutrition Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fefefe;
+    }header {
+  background-color: #88e36c;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.form-section {
+  background-color: #f0fff0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #88e36c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #d4f5c7;
+}
+
+  </style>
+</head><body>
+  <header>
+    <h1>Kids Nutrition Tracker</h1>
+  </header>  <div class="container">
+    <div class="form-section">
+      <h2>Add Nutrition Entry</h2>
+      <form id="nutritionForm">
+        <label for="childName">Child's Name:</label>
+        <input type="text" id="childName" required><label for="food">Food Item:</label>
+    <input type="text" id="food" required>
+
+    <label for="calories">Calories:</label>
+    <input type="number" id="calories" required>
+
+    <label for="mealTime">Meal Time:</label>
+    <select id="mealTime">
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+      <option value="Snack">Snack</option>
+    </select>
+
+    <button type="submit">Add Entry</button>
+  </form>
+</div>
+
+<div class="table-section">
+  <h2>Nutrition Entries</h2>
+  <table id="nutritionTable">
+    <thead>
+      <tr>
+        <th>Child's Name</th>
+        <th>Food Item</th>
+        <th>Calories</th>
+        <th>Meal Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Entries will be added here -->
+    </tbody>
+  </table>
+</div>
+
+  </div>  <script>
+    const form = document.getElementById('nutritionForm');
+    const tableBody = document.querySelector('#nutritionTable tbody');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('childName').value;
+      const food = document.getElementById('food').value;
+      const calories = document.getElementById('calories').value;
+      const mealTime = document.getElementById('mealTime').value;
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${food}</td>
+        <td>${calories}</td>
+        <td>${mealTime}</td>
+      `;
+
+      tableBody.appendChild(row);
+
+      form.reset();
+    });
+  </script></body></html>

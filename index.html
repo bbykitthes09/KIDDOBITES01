@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KiddoBites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>KiddoBites</h1>
+    <p>Let's eat healthy and grow strong!</p>
+  </header>
+
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\kanak.png" alt="Loading...">
+    <p>Loading...</p>
+  </div>
+
+<!-- Signup Page -->
+<div id="signupPage" class="page" style="display:none;">
+  <h2>Sign Up</h2>
+  <input type="text" id="signupUsername" placeholder="Username">
+  <input type="password" id="signupPassword" placeholder="Password">
+  <button onclick="signup()">Sign Up</button>
+  <p>Dah ada akaun? <a href="#" onclick="showLogin()">Log In</a></p>
+</div>
+
+<!-- Home Page -->
+<div id="homePage" class="page" style="display:none;">
+  <h2>KiddoBites</h2>
+  <button onclick="loadPage('products','vegetables')">Start Shopping</button>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<!-- Product Page -->
+<div id="productPage" class="page" style="display:none;">
+  <h2>Pilih Produk</h2>
+  <div id="productList"></div>
+  <button onclick="goHome()">Back</button>
+  <button onclick="goToCart()">Next (Payment)</button>
+</div>
+
+<!-- Payment Page -->
+<div id="paymentPage" class="page" style="display:none;">
+  <h2>Payment</h2>
+  <p id="totalAmount"></p>
+  <label><input type="radio" name="payment" value="Online Banking"> Online Banking</label><br>
+  <label><input type="radio" name="payment" value="Credit Card"> Credit Card</label><br>
+  <label><input type="radio" name="payment" value="Cash on Delivery"> Cash on Delivery</label><br>
+  <button onclick="loadPage('products','vegetables')">Back</button>
+  <button onclick="confirmPurchase()">Confirm Purchase</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+  <!-- Main gallery -->
+  <div class="content" id="main-content">
+    <h2>Click a category to explore more:</h2>
+    <div class="gallery">
+      <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\sayyyur.webp" alt="Vegetables" onclick="showSlideWithLoading('vegetables')">
+      <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\buah.webp" alt="Fruits" onclick="showSlideWithLoading('fruits')">
+      <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\susu.png" alt="Milk & Dairy" onclick="showSlideWithLoading('dairy')">
+      <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\protein.png" alt="Protein" onclick="showSlideWithLoading('protein')">
+      <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\wholegrains.png" alt="Whole Grains" onclick="showSlideWithLoading('grains')">
+      <img src="c:\Users\PSC\Downloads\img-20250714T024527Z-1-001 (1)\img\Gallery\tip.png" alt="Nutrition Tips" onclick="showSlideWithLoading('tips')">
+    </div>
+  </div>
+
+  <!-- Slides -->
+  <div class="slide" id="vegetables">
+    <h3>Vegetables for Kids</h3>
+    <ul><li>Carrots</li><li>Broccoli</li><li>Spinach</li><li>Green beans</li></ul>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <div class="slide" id="fruits">
+    <h3>Fruits for Kids</h3>
+    <ul><li>Apples</li><li>Bananas</li><li>Oranges</li><li>Strawberries</li></ul>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <div class="slide" id="dairy">
+    <h3>Milk and Dairy</h3>
+    <ul><li>Fresh milk</li><li>Low-sugar yogurt</li><li>Low-fat cheese</li></ul>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <div class="slide" id="protein">
+    <h3>Healthy Proteins</h3>
+    <ul><li>Eggs</li><li>Skinless chicken</li><li>Fish</li><li>Tofu / Tempeh</li></ul>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <div class="slide" id="grains">
+    <h3>Whole Grains</h3>
+    <ul><li>Oatmeal</li><li>Brown rice</li><li>Whole wheat bread</li><li>Whole grain pasta</li></ul>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <div class="slide" id="tips">
+    <h3>Nutrition Tips</h3>
+    <ul><li>Drink enough water</li><li>Avoid sugary snacks</li><li>Eat colorful meals</li><li>Don't skip breakfast</li></ul>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Kids' Nutrition Food</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
